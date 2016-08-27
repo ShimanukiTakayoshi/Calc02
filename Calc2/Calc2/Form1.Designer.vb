@@ -32,9 +32,13 @@ Partial Class Form1
     Me.ToolStripMenuItemHelpReadme = New System.Windows.Forms.ToolStripMenuItem()
     Me.ToolStripMenuItemHelpWeb = New System.Windows.Forms.ToolStripMenuItem()
     Me.ToolStripMenuItemHelpVersion = New System.Windows.Forms.ToolStripMenuItem()
+    Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+    Me.ToolStripContainer1.ContentPanel.SuspendLayout()
     Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
     Me.ToolStripContainer1.SuspendLayout()
     Me.MenuStrip1.SuspendLayout()
+    CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
+    Me.SplitContainer1.SuspendLayout()
     Me.SuspendLayout()
     '
     'ToolStripContainer1
@@ -43,13 +47,14 @@ Partial Class Form1
     '
     'ToolStripContainer1.ContentPanel
     '
-    Me.ToolStripContainer1.ContentPanel.Size = New System.Drawing.Size(284, 237)
+    Me.ToolStripContainer1.ContentPanel.Controls.Add(Me.SplitContainer1)
+    Me.ToolStripContainer1.ContentPanel.Size = New System.Drawing.Size(541, 237)
     Me.ToolStripContainer1.Dock = System.Windows.Forms.DockStyle.Fill
     Me.ToolStripContainer1.LeftToolStripPanelVisible = False
     Me.ToolStripContainer1.Location = New System.Drawing.Point(0, 0)
     Me.ToolStripContainer1.Name = "ToolStripContainer1"
     Me.ToolStripContainer1.RightToolStripPanelVisible = False
-    Me.ToolStripContainer1.Size = New System.Drawing.Size(284, 261)
+    Me.ToolStripContainer1.Size = New System.Drawing.Size(541, 261)
     Me.ToolStripContainer1.TabIndex = 0
     Me.ToolStripContainer1.Text = "ToolStripContainer1"
     '
@@ -63,7 +68,7 @@ Partial Class Form1
     Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FToolStripMenuItemFile, Me.ToolStripMenuItemSetting, Me.ToolStripMenuItemHelp})
     Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
     Me.MenuStrip1.Name = "MenuStrip1"
-    Me.MenuStrip1.Size = New System.Drawing.Size(284, 24)
+    Me.MenuStrip1.Size = New System.Drawing.Size(541, 24)
     Me.MenuStrip1.TabIndex = 0
     Me.MenuStrip1.Text = "MenuStrip1"
     '
@@ -119,21 +124,33 @@ Partial Class Form1
     Me.ToolStripMenuItemHelpVersion.Size = New System.Drawing.Size(182, 22)
     Me.ToolStripMenuItemHelpVersion.Text = "バージョン情報(&V)"
     '
+    'SplitContainer1
+    '
+    Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
+    Me.SplitContainer1.Location = New System.Drawing.Point(0, 0)
+    Me.SplitContainer1.Name = "SplitContainer1"
+    Me.SplitContainer1.Size = New System.Drawing.Size(541, 237)
+    Me.SplitContainer1.SplitterDistance = 180
+    Me.SplitContainer1.TabIndex = 0
+    '
     'Form1
     '
     Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
     Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-    Me.ClientSize = New System.Drawing.Size(284, 261)
+    Me.ClientSize = New System.Drawing.Size(541, 261)
     Me.Controls.Add(Me.ToolStripContainer1)
     Me.MainMenuStrip = Me.MenuStrip1
     Me.Name = "Form1"
     Me.Text = "Form1"
+    Me.ToolStripContainer1.ContentPanel.ResumeLayout(False)
     Me.ToolStripContainer1.TopToolStripPanel.ResumeLayout(False)
     Me.ToolStripContainer1.TopToolStripPanel.PerformLayout()
     Me.ToolStripContainer1.ResumeLayout(False)
     Me.ToolStripContainer1.PerformLayout()
     Me.MenuStrip1.ResumeLayout(False)
     Me.MenuStrip1.PerformLayout()
+    CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
+    Me.SplitContainer1.ResumeLayout(False)
     Me.ResumeLayout(False)
 
   End Sub
@@ -148,4 +165,5 @@ Partial Class Form1
   Friend WithEvents ToolStripMenuItemHelpReadme As ToolStripMenuItem
   Friend WithEvents ToolStripMenuItemHelpWeb As ToolStripMenuItem
   Friend WithEvents ToolStripMenuItemHelpVersion As ToolStripMenuItem
+  Friend WithEvents SplitContainer1 As SplitContainer
 End Class
