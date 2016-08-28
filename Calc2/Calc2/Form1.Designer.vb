@@ -23,6 +23,14 @@ Partial Class Form1
   <System.Diagnostics.DebuggerStepThrough()> _
   Private Sub InitializeComponent()
     Me.ToolStripContainer1 = New System.Windows.Forms.ToolStripContainer()
+    Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+    Me.TextBoxExpression = New System.Windows.Forms.TextBox()
+    Me.PanelRightBottom = New System.Windows.Forms.Panel()
+    Me.ButtonExit = New System.Windows.Forms.Button()
+    Me.ButtonCopy = New System.Windows.Forms.Button()
+    Me.ButtonExecute = New System.Windows.Forms.Button()
+    Me.ButtonClear = New System.Windows.Forms.Button()
+    Me.TextBoxResult = New System.Windows.Forms.TextBox()
     Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
     Me.FToolStripMenuItemFile = New System.Windows.Forms.ToolStripMenuItem()
     Me.ToolStripMenuItemFileExit = New System.Windows.Forms.ToolStripMenuItem()
@@ -32,24 +40,22 @@ Partial Class Form1
     Me.ToolStripMenuItemHelpReadme = New System.Windows.Forms.ToolStripMenuItem()
     Me.ToolStripMenuItemHelpWeb = New System.Windows.Forms.ToolStripMenuItem()
     Me.ToolStripMenuItemHelpVersion = New System.Windows.Forms.ToolStripMenuItem()
-    Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
-    Me.TextBoxExpression = New System.Windows.Forms.TextBox()
-    Me.TextBoxResult = New System.Windows.Forms.TextBox()
-    Me.PanelRightBottom = New System.Windows.Forms.Panel()
-    Me.ButtonClear = New System.Windows.Forms.Button()
-    Me.ButtonExecute = New System.Windows.Forms.Button()
-    Me.ButtonCopy = New System.Windows.Forms.Button()
-    Me.ButtonExit = New System.Windows.Forms.Button()
     Me.FontDialog1 = New System.Windows.Forms.FontDialog()
+    Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItemEditCopy = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItemEditCopyAll = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItemEditPaste = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItemSettingShowAdjustedExpression = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItemSettingSettingFont = New System.Windows.Forms.ToolStripMenuItem()
     Me.ToolStripContainer1.ContentPanel.SuspendLayout()
     Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
     Me.ToolStripContainer1.SuspendLayout()
-    Me.MenuStrip1.SuspendLayout()
     CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
     Me.SplitContainer1.Panel1.SuspendLayout()
     Me.SplitContainer1.Panel2.SuspendLayout()
     Me.SplitContainer1.SuspendLayout()
     Me.PanelRightBottom.SuspendLayout()
+    Me.MenuStrip1.SuspendLayout()
     Me.SuspendLayout()
     '
     'ToolStripContainer1
@@ -73,10 +79,94 @@ Partial Class Form1
     '
     Me.ToolStripContainer1.TopToolStripPanel.Controls.Add(Me.MenuStrip1)
     '
+    'SplitContainer1
+    '
+    Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
+    Me.SplitContainer1.Location = New System.Drawing.Point(0, 0)
+    Me.SplitContainer1.Name = "SplitContainer1"
+    '
+    'SplitContainer1.Panel1
+    '
+    Me.SplitContainer1.Panel1.Controls.Add(Me.TextBoxExpression)
+    '
+    'SplitContainer1.Panel2
+    '
+    Me.SplitContainer1.Panel2.Controls.Add(Me.PanelRightBottom)
+    Me.SplitContainer1.Panel2.Controls.Add(Me.TextBoxResult)
+    Me.SplitContainer1.Size = New System.Drawing.Size(541, 237)
+    Me.SplitContainer1.SplitterDistance = 180
+    Me.SplitContainer1.TabIndex = 0
+    '
+    'TextBoxExpression
+    '
+    Me.TextBoxExpression.Location = New System.Drawing.Point(18, 17)
+    Me.TextBoxExpression.Name = "TextBoxExpression"
+    Me.TextBoxExpression.Size = New System.Drawing.Size(107, 19)
+    Me.TextBoxExpression.TabIndex = 0
+    '
+    'PanelRightBottom
+    '
+    Me.PanelRightBottom.Controls.Add(Me.ButtonExit)
+    Me.PanelRightBottom.Controls.Add(Me.ButtonCopy)
+    Me.PanelRightBottom.Controls.Add(Me.ButtonExecute)
+    Me.PanelRightBottom.Controls.Add(Me.ButtonClear)
+    Me.PanelRightBottom.Dock = System.Windows.Forms.DockStyle.Bottom
+    Me.PanelRightBottom.Location = New System.Drawing.Point(0, 137)
+    Me.PanelRightBottom.Name = "PanelRightBottom"
+    Me.PanelRightBottom.Size = New System.Drawing.Size(357, 100)
+    Me.PanelRightBottom.TabIndex = 1
+    '
+    'ButtonExit
+    '
+    Me.ButtonExit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+    Me.ButtonExit.Location = New System.Drawing.Point(252, 52)
+    Me.ButtonExit.Name = "ButtonExit"
+    Me.ButtonExit.Size = New System.Drawing.Size(71, 25)
+    Me.ButtonExit.TabIndex = 3
+    Me.ButtonExit.Text = "終了"
+    Me.ButtonExit.UseVisualStyleBackColor = True
+    '
+    'ButtonCopy
+    '
+    Me.ButtonCopy.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+    Me.ButtonCopy.Location = New System.Drawing.Point(175, 52)
+    Me.ButtonCopy.Name = "ButtonCopy"
+    Me.ButtonCopy.Size = New System.Drawing.Size(71, 25)
+    Me.ButtonCopy.TabIndex = 2
+    Me.ButtonCopy.Text = "＜－－"
+    Me.ButtonCopy.UseVisualStyleBackColor = True
+    '
+    'ButtonExecute
+    '
+    Me.ButtonExecute.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+    Me.ButtonExecute.Location = New System.Drawing.Point(252, 21)
+    Me.ButtonExecute.Name = "ButtonExecute"
+    Me.ButtonExecute.Size = New System.Drawing.Size(71, 25)
+    Me.ButtonExecute.TabIndex = 1
+    Me.ButtonExecute.Text = "計算"
+    Me.ButtonExecute.UseVisualStyleBackColor = True
+    '
+    'ButtonClear
+    '
+    Me.ButtonClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+    Me.ButtonClear.Location = New System.Drawing.Point(175, 21)
+    Me.ButtonClear.Name = "ButtonClear"
+    Me.ButtonClear.Size = New System.Drawing.Size(71, 25)
+    Me.ButtonClear.TabIndex = 0
+    Me.ButtonClear.Text = "クリア"
+    Me.ButtonClear.UseVisualStyleBackColor = True
+    '
+    'TextBoxResult
+    '
+    Me.TextBoxResult.Location = New System.Drawing.Point(22, 17)
+    Me.TextBoxResult.Name = "TextBoxResult"
+    Me.TextBoxResult.Size = New System.Drawing.Size(100, 19)
+    Me.TextBoxResult.TabIndex = 0
+    '
     'MenuStrip1
     '
     Me.MenuStrip1.Dock = System.Windows.Forms.DockStyle.None
-    Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FToolStripMenuItemFile, Me.ToolStripMenuItemSetting, Me.ToolStripMenuItemHelp})
+    Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FToolStripMenuItemFile, Me.ToolStripMenuItem1, Me.ToolStripMenuItemSetting, Me.ToolStripMenuItemHelp})
     Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
     Me.MenuStrip1.Name = "MenuStrip1"
     Me.MenuStrip1.Size = New System.Drawing.Size(541, 24)
@@ -99,7 +189,7 @@ Partial Class Form1
     '
     'ToolStripMenuItemSetting
     '
-    Me.ToolStripMenuItemSetting.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemSettingShowMenu})
+    Me.ToolStripMenuItemSetting.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemSettingShowMenu, Me.ToolStripMenuItemSettingShowAdjustedExpression, Me.ToolStripMenuItemSettingSettingFont})
     Me.ToolStripMenuItemSetting.Name = "ToolStripMenuItemSetting"
     Me.ToolStripMenuItemSetting.Size = New System.Drawing.Size(57, 20)
     Me.ToolStripMenuItemSetting.Text = "設定(&S)"
@@ -107,7 +197,7 @@ Partial Class Form1
     'ToolStripMenuItemSettingShowMenu
     '
     Me.ToolStripMenuItemSettingShowMenu.Name = "ToolStripMenuItemSettingShowMenu"
-    Me.ToolStripMenuItemSettingShowMenu.Size = New System.Drawing.Size(190, 22)
+    Me.ToolStripMenuItemSettingShowMenu.Size = New System.Drawing.Size(204, 22)
     Me.ToolStripMenuItemSettingShowMenu.Text = "常にﾒﾆｭｰを表示する(&M)"
     '
     'ToolStripMenuItemHelp
@@ -135,89 +225,42 @@ Partial Class Form1
     Me.ToolStripMenuItemHelpVersion.Size = New System.Drawing.Size(182, 22)
     Me.ToolStripMenuItemHelpVersion.Text = "バージョン情報(&V)"
     '
-    'SplitContainer1
+    'ToolStripMenuItem1
     '
-    Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
-    Me.SplitContainer1.Location = New System.Drawing.Point(0, 0)
-    Me.SplitContainer1.Name = "SplitContainer1"
+    Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemEditCopy, Me.ToolStripMenuItemEditCopyAll, Me.ToolStripMenuItemEditPaste})
+    Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+    Me.ToolStripMenuItem1.Size = New System.Drawing.Size(57, 20)
+    Me.ToolStripMenuItem1.Text = "編集(&E)"
     '
-    'SplitContainer1.Panel1
+    'ToolStripMenuItemEditCopy
     '
-    Me.SplitContainer1.Panel1.Controls.Add(Me.TextBoxExpression)
+    Me.ToolStripMenuItemEditCopy.Name = "ToolStripMenuItemEditCopy"
+    Me.ToolStripMenuItemEditCopy.Size = New System.Drawing.Size(168, 22)
+    Me.ToolStripMenuItemEditCopy.Text = "結果をコピー(&C)"
     '
-    'SplitContainer1.Panel2
+    'ToolStripMenuItemEditCopyAll
     '
-    Me.SplitContainer1.Panel2.Controls.Add(Me.PanelRightBottom)
-    Me.SplitContainer1.Panel2.Controls.Add(Me.TextBoxResult)
-    Me.SplitContainer1.Size = New System.Drawing.Size(541, 237)
-    Me.SplitContainer1.SplitterDistance = 180
-    Me.SplitContainer1.TabIndex = 0
+    Me.ToolStripMenuItemEditCopyAll.Name = "ToolStripMenuItemEditCopyAll"
+    Me.ToolStripMenuItemEditCopyAll.Size = New System.Drawing.Size(168, 22)
+    Me.ToolStripMenuItemEditCopyAll.Text = "式と結果をコピー(&A)"
     '
-    'TextBoxExpression
+    'ToolStripMenuItemEditPaste
     '
-    Me.TextBoxExpression.Location = New System.Drawing.Point(18, 17)
-    Me.TextBoxExpression.Name = "TextBoxExpression"
-    Me.TextBoxExpression.Size = New System.Drawing.Size(107, 19)
-    Me.TextBoxExpression.TabIndex = 0
+    Me.ToolStripMenuItemEditPaste.Name = "ToolStripMenuItemEditPaste"
+    Me.ToolStripMenuItemEditPaste.Size = New System.Drawing.Size(168, 22)
+    Me.ToolStripMenuItemEditPaste.Text = "貼り付け(&V)"
     '
-    'TextBoxResult
+    'ToolStripMenuItemSettingShowAdjustedExpression
     '
-    Me.TextBoxResult.Location = New System.Drawing.Point(22, 17)
-    Me.TextBoxResult.Name = "TextBoxResult"
-    Me.TextBoxResult.Size = New System.Drawing.Size(100, 19)
-    Me.TextBoxResult.TabIndex = 0
+    Me.ToolStripMenuItemSettingShowAdjustedExpression.Name = "ToolStripMenuItemSettingShowAdjustedExpression"
+    Me.ToolStripMenuItemSettingShowAdjustedExpression.Size = New System.Drawing.Size(204, 22)
+    Me.ToolStripMenuItemSettingShowAdjustedExpression.Text = "編集された式を表示する(&S)"
     '
-    'PanelRightBottom
+    'ToolStripMenuItemSettingSettingFont
     '
-    Me.PanelRightBottom.Controls.Add(Me.ButtonExit)
-    Me.PanelRightBottom.Controls.Add(Me.ButtonCopy)
-    Me.PanelRightBottom.Controls.Add(Me.ButtonExecute)
-    Me.PanelRightBottom.Controls.Add(Me.ButtonClear)
-    Me.PanelRightBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-    Me.PanelRightBottom.Location = New System.Drawing.Point(0, 137)
-    Me.PanelRightBottom.Name = "PanelRightBottom"
-    Me.PanelRightBottom.Size = New System.Drawing.Size(357, 100)
-    Me.PanelRightBottom.TabIndex = 1
-    '
-    'ButtonClear
-    '
-    Me.ButtonClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-    Me.ButtonClear.Location = New System.Drawing.Point(175, 21)
-    Me.ButtonClear.Name = "ButtonClear"
-    Me.ButtonClear.Size = New System.Drawing.Size(71, 25)
-    Me.ButtonClear.TabIndex = 0
-    Me.ButtonClear.Text = "クリア"
-    Me.ButtonClear.UseVisualStyleBackColor = True
-    '
-    'ButtonExecute
-    '
-    Me.ButtonExecute.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-    Me.ButtonExecute.Location = New System.Drawing.Point(252, 21)
-    Me.ButtonExecute.Name = "ButtonExecute"
-    Me.ButtonExecute.Size = New System.Drawing.Size(71, 25)
-    Me.ButtonExecute.TabIndex = 1
-    Me.ButtonExecute.Text = "計算"
-    Me.ButtonExecute.UseVisualStyleBackColor = True
-    '
-    'ButtonCopy
-    '
-    Me.ButtonCopy.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-    Me.ButtonCopy.Location = New System.Drawing.Point(175, 52)
-    Me.ButtonCopy.Name = "ButtonCopy"
-    Me.ButtonCopy.Size = New System.Drawing.Size(71, 25)
-    Me.ButtonCopy.TabIndex = 2
-    Me.ButtonCopy.Text = "＜－－"
-    Me.ButtonCopy.UseVisualStyleBackColor = True
-    '
-    'ButtonExit
-    '
-    Me.ButtonExit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-    Me.ButtonExit.Location = New System.Drawing.Point(252, 52)
-    Me.ButtonExit.Name = "ButtonExit"
-    Me.ButtonExit.Size = New System.Drawing.Size(71, 25)
-    Me.ButtonExit.TabIndex = 3
-    Me.ButtonExit.Text = "終了"
-    Me.ButtonExit.UseVisualStyleBackColor = True
+    Me.ToolStripMenuItemSettingSettingFont.Name = "ToolStripMenuItemSettingSettingFont"
+    Me.ToolStripMenuItemSettingSettingFont.Size = New System.Drawing.Size(204, 22)
+    Me.ToolStripMenuItemSettingSettingFont.Text = "フォント(&F)"
     '
     'Form1
     '
@@ -233,8 +276,6 @@ Partial Class Form1
     Me.ToolStripContainer1.TopToolStripPanel.PerformLayout()
     Me.ToolStripContainer1.ResumeLayout(False)
     Me.ToolStripContainer1.PerformLayout()
-    Me.MenuStrip1.ResumeLayout(False)
-    Me.MenuStrip1.PerformLayout()
     Me.SplitContainer1.Panel1.ResumeLayout(False)
     Me.SplitContainer1.Panel1.PerformLayout()
     Me.SplitContainer1.Panel2.ResumeLayout(False)
@@ -242,6 +283,8 @@ Partial Class Form1
     CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
     Me.SplitContainer1.ResumeLayout(False)
     Me.PanelRightBottom.ResumeLayout(False)
+    Me.MenuStrip1.ResumeLayout(False)
+    Me.MenuStrip1.PerformLayout()
     Me.ResumeLayout(False)
 
   End Sub
@@ -265,4 +308,10 @@ Partial Class Form1
   Friend WithEvents ButtonExecute As Button
   Friend WithEvents ButtonClear As Button
   Friend WithEvents FontDialog1 As FontDialog
+  Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
+  Friend WithEvents ToolStripMenuItemEditCopy As ToolStripMenuItem
+  Friend WithEvents ToolStripMenuItemEditCopyAll As ToolStripMenuItem
+  Friend WithEvents ToolStripMenuItemEditPaste As ToolStripMenuItem
+  Friend WithEvents ToolStripMenuItemSettingShowAdjustedExpression As ToolStripMenuItem
+  Friend WithEvents ToolStripMenuItemSettingSettingFont As ToolStripMenuItem
 End Class
