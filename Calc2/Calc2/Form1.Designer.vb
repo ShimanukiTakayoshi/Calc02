@@ -34,19 +34,19 @@ Partial Class Form1
     Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
     Me.FToolStripMenuItemFile = New System.Windows.Forms.ToolStripMenuItem()
     Me.ToolStripMenuItemFileExit = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItemEdit = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItemEditCopy = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItemEditCopyAll = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItemEditPaste = New System.Windows.Forms.ToolStripMenuItem()
     Me.ToolStripMenuItemSetting = New System.Windows.Forms.ToolStripMenuItem()
     Me.ToolStripMenuItemSettingShowMenu = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItemSettingShowAdjustedExpression = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItemSettingSettingFont = New System.Windows.Forms.ToolStripMenuItem()
     Me.ToolStripMenuItemHelp = New System.Windows.Forms.ToolStripMenuItem()
     Me.ToolStripMenuItemHelpReadme = New System.Windows.Forms.ToolStripMenuItem()
     Me.ToolStripMenuItemHelpWeb = New System.Windows.Forms.ToolStripMenuItem()
     Me.ToolStripMenuItemHelpVersion = New System.Windows.Forms.ToolStripMenuItem()
     Me.FontDialog1 = New System.Windows.Forms.FontDialog()
-    Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-    Me.ToolStripMenuItemEditCopy = New System.Windows.Forms.ToolStripMenuItem()
-    Me.ToolStripMenuItemEditCopyAll = New System.Windows.Forms.ToolStripMenuItem()
-    Me.ToolStripMenuItemEditPaste = New System.Windows.Forms.ToolStripMenuItem()
-    Me.ToolStripMenuItemSettingShowAdjustedExpression = New System.Windows.Forms.ToolStripMenuItem()
-    Me.ToolStripMenuItemSettingSettingFont = New System.Windows.Forms.ToolStripMenuItem()
     Me.ToolStripContainer1.ContentPanel.SuspendLayout()
     Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
     Me.ToolStripContainer1.SuspendLayout()
@@ -166,7 +166,7 @@ Partial Class Form1
     'MenuStrip1
     '
     Me.MenuStrip1.Dock = System.Windows.Forms.DockStyle.None
-    Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FToolStripMenuItemFile, Me.ToolStripMenuItem1, Me.ToolStripMenuItemSetting, Me.ToolStripMenuItemHelp})
+    Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FToolStripMenuItemFile, Me.ToolStripMenuItemEdit, Me.ToolStripMenuItemSetting, Me.ToolStripMenuItemHelp})
     Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
     Me.MenuStrip1.Name = "MenuStrip1"
     Me.MenuStrip1.Size = New System.Drawing.Size(541, 24)
@@ -187,6 +187,31 @@ Partial Class Form1
     Me.ToolStripMenuItemFileExit.Size = New System.Drawing.Size(155, 22)
     Me.ToolStripMenuItemFileExit.Text = "終了(&X)"
     '
+    'ToolStripMenuItemEdit
+    '
+    Me.ToolStripMenuItemEdit.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemEditCopy, Me.ToolStripMenuItemEditCopyAll, Me.ToolStripMenuItemEditPaste})
+    Me.ToolStripMenuItemEdit.Name = "ToolStripMenuItemEdit"
+    Me.ToolStripMenuItemEdit.Size = New System.Drawing.Size(57, 20)
+    Me.ToolStripMenuItemEdit.Text = "編集(&E)"
+    '
+    'ToolStripMenuItemEditCopy
+    '
+    Me.ToolStripMenuItemEditCopy.Name = "ToolStripMenuItemEditCopy"
+    Me.ToolStripMenuItemEditCopy.Size = New System.Drawing.Size(168, 22)
+    Me.ToolStripMenuItemEditCopy.Text = "結果をコピー(&C)"
+    '
+    'ToolStripMenuItemEditCopyAll
+    '
+    Me.ToolStripMenuItemEditCopyAll.Name = "ToolStripMenuItemEditCopyAll"
+    Me.ToolStripMenuItemEditCopyAll.Size = New System.Drawing.Size(168, 22)
+    Me.ToolStripMenuItemEditCopyAll.Text = "式と結果をコピー(&A)"
+    '
+    'ToolStripMenuItemEditPaste
+    '
+    Me.ToolStripMenuItemEditPaste.Name = "ToolStripMenuItemEditPaste"
+    Me.ToolStripMenuItemEditPaste.Size = New System.Drawing.Size(168, 22)
+    Me.ToolStripMenuItemEditPaste.Text = "貼り付け(&V)"
+    '
     'ToolStripMenuItemSetting
     '
     Me.ToolStripMenuItemSetting.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemSettingShowMenu, Me.ToolStripMenuItemSettingShowAdjustedExpression, Me.ToolStripMenuItemSettingSettingFont})
@@ -199,6 +224,18 @@ Partial Class Form1
     Me.ToolStripMenuItemSettingShowMenu.Name = "ToolStripMenuItemSettingShowMenu"
     Me.ToolStripMenuItemSettingShowMenu.Size = New System.Drawing.Size(204, 22)
     Me.ToolStripMenuItemSettingShowMenu.Text = "常にﾒﾆｭｰを表示する(&M)"
+    '
+    'ToolStripMenuItemSettingShowAdjustedExpression
+    '
+    Me.ToolStripMenuItemSettingShowAdjustedExpression.Name = "ToolStripMenuItemSettingShowAdjustedExpression"
+    Me.ToolStripMenuItemSettingShowAdjustedExpression.Size = New System.Drawing.Size(204, 22)
+    Me.ToolStripMenuItemSettingShowAdjustedExpression.Text = "編集された式を表示する(&S)"
+    '
+    'ToolStripMenuItemSettingSettingFont
+    '
+    Me.ToolStripMenuItemSettingSettingFont.Name = "ToolStripMenuItemSettingSettingFont"
+    Me.ToolStripMenuItemSettingSettingFont.Size = New System.Drawing.Size(204, 22)
+    Me.ToolStripMenuItemSettingSettingFont.Text = "フォント(&F)"
     '
     'ToolStripMenuItemHelp
     '
@@ -224,43 +261,6 @@ Partial Class Form1
     Me.ToolStripMenuItemHelpVersion.Name = "ToolStripMenuItemHelpVersion"
     Me.ToolStripMenuItemHelpVersion.Size = New System.Drawing.Size(182, 22)
     Me.ToolStripMenuItemHelpVersion.Text = "バージョン情報(&V)"
-    '
-    'ToolStripMenuItem1
-    '
-    Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemEditCopy, Me.ToolStripMenuItemEditCopyAll, Me.ToolStripMenuItemEditPaste})
-    Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-    Me.ToolStripMenuItem1.Size = New System.Drawing.Size(57, 20)
-    Me.ToolStripMenuItem1.Text = "編集(&E)"
-    '
-    'ToolStripMenuItemEditCopy
-    '
-    Me.ToolStripMenuItemEditCopy.Name = "ToolStripMenuItemEditCopy"
-    Me.ToolStripMenuItemEditCopy.Size = New System.Drawing.Size(168, 22)
-    Me.ToolStripMenuItemEditCopy.Text = "結果をコピー(&C)"
-    '
-    'ToolStripMenuItemEditCopyAll
-    '
-    Me.ToolStripMenuItemEditCopyAll.Name = "ToolStripMenuItemEditCopyAll"
-    Me.ToolStripMenuItemEditCopyAll.Size = New System.Drawing.Size(168, 22)
-    Me.ToolStripMenuItemEditCopyAll.Text = "式と結果をコピー(&A)"
-    '
-    'ToolStripMenuItemEditPaste
-    '
-    Me.ToolStripMenuItemEditPaste.Name = "ToolStripMenuItemEditPaste"
-    Me.ToolStripMenuItemEditPaste.Size = New System.Drawing.Size(168, 22)
-    Me.ToolStripMenuItemEditPaste.Text = "貼り付け(&V)"
-    '
-    'ToolStripMenuItemSettingShowAdjustedExpression
-    '
-    Me.ToolStripMenuItemSettingShowAdjustedExpression.Name = "ToolStripMenuItemSettingShowAdjustedExpression"
-    Me.ToolStripMenuItemSettingShowAdjustedExpression.Size = New System.Drawing.Size(204, 22)
-    Me.ToolStripMenuItemSettingShowAdjustedExpression.Text = "編集された式を表示する(&S)"
-    '
-    'ToolStripMenuItemSettingSettingFont
-    '
-    Me.ToolStripMenuItemSettingSettingFont.Name = "ToolStripMenuItemSettingSettingFont"
-    Me.ToolStripMenuItemSettingSettingFont.Size = New System.Drawing.Size(204, 22)
-    Me.ToolStripMenuItemSettingSettingFont.Text = "フォント(&F)"
     '
     'Form1
     '
@@ -308,7 +308,7 @@ Partial Class Form1
   Friend WithEvents ButtonExecute As Button
   Friend WithEvents ButtonClear As Button
   Friend WithEvents FontDialog1 As FontDialog
-  Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
+  Friend WithEvents ToolStripMenuItemEdit As ToolStripMenuItem
   Friend WithEvents ToolStripMenuItemEditCopy As ToolStripMenuItem
   Friend WithEvents ToolStripMenuItemEditCopyAll As ToolStripMenuItem
   Friend WithEvents ToolStripMenuItemEditPaste As ToolStripMenuItem

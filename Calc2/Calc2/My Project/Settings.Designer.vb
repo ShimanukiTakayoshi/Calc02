@@ -13,15 +13,15 @@ Option Explicit On
 
 
 Namespace My
-
-  <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(), _
-   Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0"), _
-   Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)> _
-  Partial Friend NotInheritable Class MySettings
-    Inherits Global.System.Configuration.ApplicationSettingsBase
-
-    Private Shared defaultInstance As MySettings = CType(Global.System.Configuration.ApplicationSettingsBase.Synchronized(New MySettings()), MySettings)
-
+    
+    <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0"),  _
+     Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
+    Partial Friend NotInheritable Class MySettings
+        Inherits Global.System.Configuration.ApplicationSettingsBase
+        
+        Private Shared defaultInstance As MySettings = CType(Global.System.Configuration.ApplicationSettingsBase.Synchronized(New MySettings()),MySettings)
+        
 #Region "My.Settings 自動保存機能"
 #If _MyType = "WindowsForms" Then
     Private Shared addedHandler As Boolean
@@ -36,10 +36,10 @@ Namespace My
     End Sub
 #End If
 #End Region
-
-    Public Shared ReadOnly Property [Default]() As MySettings
-      Get
-
+        
+        Public Shared ReadOnly Property [Default]() As MySettings
+            Get
+                
 #If _MyType = "WindowsForms" Then
                If Not addedHandler Then
                     SyncLock addedHandlerLockObject
@@ -50,60 +50,96 @@ Namespace My
                     End SyncLock
                 End If
 #End If
-        Return defaultInstance
-      End Get
-    End Property
-
-    <Global.System.Configuration.UserScopedSettingAttribute(), _
-     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-     Global.System.Configuration.DefaultSettingValueAttribute("True")> _
-    Public Property ShowMenu() As Boolean
-      Get
-        Return CType(Me("ShowMenu"), Boolean)
-      End Get
-      Set
-        Me("ShowMenu") = value
-      End Set
-    End Property
-
-    <Global.System.Configuration.UserScopedSettingAttribute(), _
-     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-     Global.System.Configuration.DefaultSettingValueAttribute("100, 100")> _
-    Public Property Location() As Global.System.Drawing.Point
-      Get
-        Return CType(Me("Location"), Global.System.Drawing.Point)
-      End Get
-      Set
-        Me("Location") = value
-      End Set
-    End Property
-
-    <Global.System.Configuration.UserScopedSettingAttribute(), _
-     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-     Global.System.Configuration.DefaultSettingValueAttribute("300, 100")> _
-    Public Property Size() As Global.System.Drawing.Size
-      Get
-        Return CType(Me("Size"), Global.System.Drawing.Size)
-      End Get
-      Set
-        Me("Size") = value
-      End Set
-    End Property
-  End Class
+                Return defaultInstance
+            End Get
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property ShowMenu() As Boolean
+            Get
+                Return CType(Me("ShowMenu"),Boolean)
+            End Get
+            Set
+                Me("ShowMenu") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("100, 100")>  _
+        Public Property Location() As Global.System.Drawing.Point
+            Get
+                Return CType(Me("Location"),Global.System.Drawing.Point)
+            End Get
+            Set
+                Me("Location") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("300, 100")>  _
+        Public Property Size() As Global.System.Drawing.Size
+            Get
+                Return CType(Me("Size"),Global.System.Drawing.Size)
+            End Get
+            Set
+                Me("Size") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property ShowAdjustedExpression() As Boolean
+            Get
+                Return CType(Me("ShowAdjustedExpression"),Boolean)
+            End Get
+            Set
+                Me("ShowAdjustedExpression") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("MS UI Gothic, 20.25pt")>  _
+        Public Property Font() As Global.System.Drawing.Font
+            Get
+                Return CType(Me("Font"),Global.System.Drawing.Font)
+            End Get
+            Set
+                Me("Font") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("300")>  _
+        Public Property SplitterDistance() As Integer
+            Get
+                Return CType(Me("SplitterDistance"),Integer)
+            End Get
+            Set
+                Me("SplitterDistance") = value
+            End Set
+        End Property
+    End Class
 End Namespace
 
 Namespace My
-
-  <Global.Microsoft.VisualBasic.HideModuleNameAttribute(), _
-   Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
-   Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()> _
-  Friend Module MySettingsProperty
-
-    <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")> _
-    Friend ReadOnly Property Settings() As Global.Calc2.My.MySettings
-      Get
-        Return Global.Calc2.My.MySettings.Default
-      End Get
-    End Property
-  End Module
+    
+    <Global.Microsoft.VisualBasic.HideModuleNameAttribute(),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()>  _
+    Friend Module MySettingsProperty
+        
+        <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
+        Friend ReadOnly Property Settings() As Global.Calc2.My.MySettings
+            Get
+                Return Global.Calc2.My.MySettings.Default
+            End Get
+        End Property
+    End Module
 End Namespace

@@ -1,5 +1,7 @@
 ﻿Public Class Form1
 
+  Private Calc As Calc = New Calc
+
   Private Property ShowMenu As Boolean
     Get
       Return My.Settings.ShowMenu
@@ -11,13 +13,47 @@
     End Set
   End Property
 
+  Private Property ShowAdjustedExpression As Boolean
+    Get
+      Return My.Settings.ShowAdjustedExpression
+    End Get
+    Set(ByVal value As Boolean)
+      My.Settings.ShowAdjustedExpression = value
+      ToolStripMenuItemSettingShowAdjustedExpression.Checked = value
+    End Set
+  End Property
+
   Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
     Me.KeyPreview = True
     ShowMenu = My.Settings.ShowMenu
-
     Me.Text = Application.ProductName
-    Me.MinimumSize = New Drawing.Size(300, 100)
+    Me.MinimumSize = New Drawing.Size(600, 200)
     Me.Size = My.Settings.Size
+    Me.AcceptButton = ButtonExecute
+
+    With SplitContainer1
+      .BackColor = Color.Yellow
+      .Panel1.BackColor = SystemColors.Control
+      .Panel2.BackColor = SystemColors.Control
+      .Panel1.Padding = New Padding(6)
+      .Panel2.Padding = .Panel1.Padding
+    End With
+
+    With TextBoxExpression
+      .Multiline = True
+      .Dock = DockStyle.Fill
+      .Font = My.Settings.Font
+      .Select()
+    End With
+
+    With FontDialog1
+      .AllowVerticalFonts = False
+      .ScriptsOnly = True
+      .ShowEffects = False
+    End With
+
+    SplitContainer1.SplitterDistance = My.Settings.SplitterDistance
+    ShowAdjustedExpression = My.Settings.ShowAdjustedExpression
 
     Me.Location = My.Settings.Location
     If Me.Left < Screen.GetWorkingArea(Me).Left OrElse
@@ -89,5 +125,82 @@
     Me.WindowState = FormWindowState.Normal
     My.Settings.Location = Me.Location
     My.Settings.Size = Me.Size
+    My.Settings.Font = TextBoxExpression.Font
+    My.Settings.SplitterDistance = SplitContainer1.SplitterDistance
   End Sub
+
+  Private Sub ButtonExecute_Click(sender As Object, e As EventArgs) Handles ButtonExecute.Click
+    Calc.Expression = TextBoxExpression.Text
+    If Calc.Status = Calc.StatusCode.Success Then
+      If ShowAdjustedExpression And
+      TextBoxExpression.Text <> Calc.expression Then
+        TextBoxExpression.Text = Calc.expression
+        TextBoxExpression.ForeColor = Color.Red
+      End If
+      TextBoxResult.Text = CDec(Calc.Answer).ToString
+    Else
+      MessageBox.Show(Calc.message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Error)
+      TextBoxResult.Clear()
+    End If
+  End Sub
+
+  Private Sub TextBoxExpression_TextChanged(sender As Object, e As EventArgs) Handles TextBoxExpression.TextChanged
+    TextBoxExpression.ForeColor = Color.Black
+  End Sub
+
+  Private Sub ButtonClear_Click(sender As Object, e As EventArgs) Handles ButtonClear.Click
+    TextBoxExpression.Clear()
+  End Sub
+
+  Private Sub ButtonExit_Click(sender As Object, e As EventArgs) Handles ButtonExit.Click
+    Me.Close()
+  End Sub
+
+  Private Sub ButtonCopy_Click(sender As Object, e As EventArgs) Handles ButtonCopy.Click
+    TextBoxExpression.Text = TextBoxResult.Text
+  End Sub
+
+  Private Sub ToolStripMenuItemSettingShowAdjustedExpression_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemSettingShowAdjustedExpression.Click
+    ShowAdjustedExpression = Not ShowAdjustedExpression
+  End Sub
+
+  Protected Overloads Function processdialogkey(keydata As Keys) As Boolean
+    Select Case keydata And Keys.KeyCode
+      Case Keys.Escape
+        TextBoxExpression.Clear()
+    End Select
+    Return MyBase.ProcessDialogKey(keydata)
+  End Function
+
+  Private Sub ToolStripMenuItemEdit_DropDownOpening(sender As Object, e As EventArgs) Handles ToolStripMenuItemEdit.DropDownOpening
+    ToolStripMenuItemEditCopy.Enabled = TextBoxResult.Text <> ""
+    ToolStripMenuItemEditCopyAll.Enabled = TextBoxExpression.Text <> "" AndAlso TextBoxResult.Text <> ""
+    ToolStripMenuItemEditPaste.Enabled = My.Computer.Clipboard.ContainsText AndAlso My.Computer.Clipboard.GetText <> ""
+  End Sub
+
+  Private Sub ToolStripMenuItemEditCopy_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemEditCopy.Click
+    Clipboard.SetText(TextBoxResult.Text)
+  End Sub
+
+  Private Sub ToolStripMenuItemEditCopyAll_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemEditCopyAll.Click
+    Clipboard.SetText(TextBoxExpression.Text & "=" & TextBoxResult.Text)
+  End Sub
+
+  Private Sub ToolStripMenuItemEditPaste_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemEditPaste.Click
+    Dim s = My.Computer.Clipboard.GetText
+    s = StrConv(s, VbStrConv.Narrow)
+    TextBoxExpression.Text = s
+  End Sub
+
+  Private Sub ToolStripMenuItemSettingSettingFont_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemSettingSettingFont.Click
+    TextBoxExpression.Font = SetFont(TextBoxExpression.Font)
+    TextBoxResult.Font = TextBoxExpression.Font
+  End Sub
+
+  Private Function SetFont(target As Font) As Font
+    FontDialog1.Font = target
+    If FontDialog1.ShowDialog Then target = FontDialog1.Font
+    Return target
+  End Function
+
 End Class
