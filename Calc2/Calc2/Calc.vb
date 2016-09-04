@@ -20,7 +20,7 @@
     End Get
     Set(value As Integer)
       StatusValue = value
-      Message = Message(value)
+      Message = Messages(value)
     End Set
   End Property
 
@@ -42,8 +42,9 @@
     ErrorOthers
   End Enum
 
-  Private Message() = New String() {
+  Private Messages() = New String() {
     "成功",
+    "カッコの中に何もありません",
     "カッコの並びに問題があります",
     "カッコの数が一致しません",
     "数式が長過ぎます",
@@ -84,14 +85,12 @@
 
     setChar = "+-*/^"
     For i = 0 To exp.Length - 3
-      If setChar.Contains(exp(i)) Then
-        If setChar.Contains(exp(i + 1)) Then
+      If setChar.Contains(exp(i)) Then _
+        If setChar.Contains(exp(i + 1)) Then _
           Return StatusCode.Error2OPerators
-        End If
-      End If
     Next
 
-    If exp.Contains(")"c) Or exp.Contains("(")c) Then
+    If exp.Contains(")"c) Or exp.Contains("("c) Then
       j = 0
       For i = 0 To exp.Length - 1
         Select Case exp(i)
@@ -128,7 +127,7 @@
         If exp(i) = ")"c Then
           Select Case exp(i + 1)
             Case "0"c To "9"c, "."c
-              exp = Left(exp, i + 1) & "*"c & rigth(exp, exp.Length - i - 1)
+              exp = Left(exp, i + 1) & "*"c & Right(exp, exp.Length - i - 1)
           End Select
         End If
       Next
@@ -186,7 +185,7 @@
           array2(i) = 2
         Case "*"c, "/"c
           array2(i) = 3
-        Case "~"c
+        Case "^"c
           array2(i) = 4
         Case Else
           array2(i) = 5
@@ -244,7 +243,7 @@
             Case "/"c
               If calcArray(j - 1) = 0 Then Return StatusCode.ErrorDivideByZero
               calcArray(j - 2) = calcArray(j - 2) / calcArray(j - 1)
-            Case "~"c
+            Case "^"c
               calcArray(j - 2) = Math.Pow(calcArray(j - 2), calcArray(j - 1))
           End Select
           j -= 1
